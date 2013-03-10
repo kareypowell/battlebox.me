@@ -1,0 +1,71 @@
+<% provide(:title, "Sign up") %>
+
+<div class="container">
+	<div class="row-fluid">
+		<!-- App screen shots slider -->
+		<div class="span3">
+			<div id="slider"></div>
+		</div>
+
+		<!-- Promotional text -->
+		<div class="span4">
+			<div id="promo-text" class="pull-right">
+				<div id="logo">
+					<%= image_tag("battleBox-logo.png", alt: "BattleBox") %>
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.
+				</p>
+				<%= link_to "#", class: "btn btn-large" do %>
+					<small>Get it on</small> GOOGLE PLAY
+				<% end %>
+			</div>
+		</div>
+
+		<!-- Signup form -->
+		<div class="span5 pull-right">
+			<div id="quick-signup">
+				<%= image_tag("quick-signUp-text.png", alt: "Quick Signup") %>
+			</div>
+
+			<%= form_for(@user, validate: true, html: { class: "pull-right" }) do |f| %>
+
+				<% render 'shared/error_messages' %>
+
+				<%= f.text_field :first_name, placeholder: "First Name", class: "input-xlarge" %><br/>
+
+				<%= f.text_field :last_name, placeholder: "Last Name", class: "input-xlarge" %><br/>
+
+				<%= f.email_field :email, placeholder: "Your Email", class: "input-xlarge" %><br/>
+
+				<%= f.password_field :password, placeholder: "New Password", class: "input-xlarge" %><br/>
+
+				<%= f.password_field :password_confirmation, placeholder: "Re-enter Password", class: "input-xlarge" %>
+
+				<%= f.label :birthday, "Birthday:" %>
+				<%= 
+					f.date_select :birthday, options = { start_year: Time.now.year, end_year: Time.now.year - 75, use_short_month: true, order: [:month, :day, :year], prompt: { year: "Year:", month: "Month:", day: "Day:" } }, html_options = { class: "span4" }
+				%><br/>
+
+				<%= f.label :gender, value: "M", class: "radio inline" do %>
+					<%= f.radio_button :gender, "M" %> Male
+				<% end %>
+
+				<%= f.label :gender, value: "F", class: "radio inline" do %>
+					<%= f.radio_button :gender, "F" %> Female
+				<% end %>
+				
+				<br/><br/>
+
+				<%= f.submit "Sign Up", class: "btn btn-large" %>
+
+			<% end %>
+		</div>
+	</div>
+</div>
