@@ -17,6 +17,11 @@ ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
+set :default_environment, {
+  'RBENV_ROOT' => '/usr/local/rbenv',
+  'PATH' => "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
+}
+
 namespace :deploy do
 	task :start do ; end
 	task :stop do ; end
@@ -32,8 +37,12 @@ namespace :deploy do
 	# end
 	# after "deploy:setup", "deploy:setup_config"
 
-	task :symlink_config, roles: :app do
-		run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+	# task :symlink_config, roles: :app do
+	# 	run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+	# end
+	desc "Link in the production database.yml"
+	task :link_production_db do
+		run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
 	end
 	after "deploy:finalize_update", "deploy:symlink_config"
 
