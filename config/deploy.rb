@@ -23,8 +23,11 @@ set :default_environment, {
 }
 
 namespace :deploy do
-	task :start do ; end
-	task :stop do ; end
+	[:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
+  end
+  
 	task :restart, roles: :app, except: { no_release: true } do
 		run "#{try_sudo} touch #{File.join(current_path, 'tmp', 'restart.txt')}"
 	end
@@ -40,11 +43,11 @@ namespace :deploy do
 	# task :symlink_config, roles: :app do
 	# 	run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 	# end
-	desc "Link in the production database.yml"
-	task :link_production_db do
-		run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
-	end
-	after "deploy:finalize_update", "deploy:symlink_config"
+	# desc "Link in the production database.yml"
+	# task :link_production_db do
+	# 	run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
+	# end
+	# after "deploy:finalize_update", "deploy:symlink_config"
 
 	desc "Make sure local git is in sync with remote."
 	task :check_revision, roles: :web do
