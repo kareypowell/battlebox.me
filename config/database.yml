@@ -53,5 +53,6 @@ production:
   encoding: unicode
   database: battlebox_production
   pool: 5
-  username: battlebox
-  password:
+  host: localhost
+  username: kpowell
+  password: battlebox2013
