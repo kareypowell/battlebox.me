@@ -10,7 +10,7 @@ server ip, :web, :app, :db, primary: true
 set :application, "battlebox.me"
 set :deploy_to, "/home/#{user}/#{application}"
 set :repository_path, "/home/#{user}/git/#{domain}.git"
-set :deploy_via, :remote_cache
+set :deploy_via, :copy
 set :use_sudo, false
 
 set :scm, :git
@@ -19,6 +19,7 @@ set :branch, "master"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+ssh_options[:keys] = %w[~/.ssh/authorized_keys]
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 

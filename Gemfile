@@ -50,6 +50,7 @@ end
 # gem 'unicorn'
 
 gem 'thin'
+gem 'passenger'
 
 # Deploy with Capistrano
 gem 'capistrano'
