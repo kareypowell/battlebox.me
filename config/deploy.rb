@@ -354,8 +354,8 @@ namespace :deploy do
     
     desc "Restarts NginX."
     task :restart do
-      Net::SSH.start(application, user) {|ssh| ssh.exec "#{sudo} /etc/init.d/nginx stop"}
-      Net::SSH.start(application, user) {|ssh| ssh.exec "#{sudo} /etc/init.d/nginx start"}
+      Net::SSH.start(application, user) {|ssh| ssh.exec "sudo /etc/init.d/nginx stop"}
+      Net::SSH.start(application, user) {|ssh| ssh.exec "sudo /etc/init.d/nginx start"}
     end
     
     desc "Removes NginX configuration and disables it."
