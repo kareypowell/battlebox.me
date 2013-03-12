@@ -120,7 +120,7 @@ namespace :deploy do
   desc "Sets permissions for Rails Application"
   task :set_permissions do
     puts "\n\n=== Setting Permissions! ===\n\n"
-    run "chown -R www-data:www-data #{deploy_to}"
+    run "#{sudo} chown -R www-data:www-data #{deploy_to}"
   end
   
   desc "Creates the production log if it does not exist"
