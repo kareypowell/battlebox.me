@@ -346,7 +346,7 @@ namespace :deploy do
       CONFIG
       
       create_tmp_file(config)
-      run "mkdir -p /opt/nginx/conf/sites-enabled"
+      run "#{sudo} mkdir -p /opt/nginx/conf/sites-enabled"
       system "rsync -vr tmp/#{domain} #{user}@#{application}:/opt/nginx/conf/sites-enabled/#{domain}"
       File.delete("tmp/#{domain}")
       system 'cap deploy:nginx:restart'
