@@ -11,7 +11,7 @@ set :application, "battlebox.me"
 set :deploy_to, "/home/#{user}/#{application}"
 set :repository_path, "/home/#{user}/git/#{domain}.git"
 set :deploy_via, :copy
-set :use_sudo, false
+set :use_sudo, true
 
 set :scm, :git
 set :repository, "https://github.com/kareypowell/#{application}.git"
