@@ -3,7 +3,7 @@ require "bundler/capistrano"
 set :ip,	"198.211.97.218"
 set :domain, "battlebox.me"
 set :subdomain, false
-set :user, "deployer"
+set :user, "root"
 
 server ip, :web, :app, :db, primary: true
 
