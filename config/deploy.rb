@@ -11,7 +11,7 @@ set :application, "battlebox.me"
 set :deploy_to, "/home/#{user}/#{application}"
 set :repository_path, "/home/#{user}/git/#{domain}.git"
 set :deploy_via, :copy
-set :use_sudo, true
+set :use_sudo, false
 
 set :scm, :git
 set :repository, "https://github.com/kareypowell/#{application}.git"
@@ -77,13 +77,13 @@ namespace :deploy do
     system 'cap deploy:passenger:restart'
   end
 
-  desc "Setup the necessary files and folders for deployment"
-  task :setup, :except => { :no_release => true } do
-    dirs = [deploy_to, releases_path, shared_path]
-    dirs += shared_children.map { |d| File.join(shared_path, d.split('/').last) }
-    run "#{sudo} mkdir -p #{dirs.join(' ')}"
-    run "#{sudo} chmod g+w #{dirs.join(' ')}" if fetch(:group_writable, true)
-  end
+  # desc "Setup the necessary files and folders for deployment"
+  # task :setup, :except => { :no_release => true } do
+  #   dirs = [deploy_to, releases_path, shared_path]
+  #   dirs += shared_children.map { |d| File.join(shared_path, d.split('/').last) }
+  #   run "#{sudo} mkdir -p #{dirs.join(' ')}"
+  #   run "#{sudo} chmod g+w #{dirs.join(' ')}" if fetch(:group_writable, true)
+  # end
  
   # Deployment Tasks
   
