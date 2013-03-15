@@ -76,6 +76,14 @@ namespace :deploy do
     set_permissions
     system 'cap deploy:passenger:restart'
   end
+
+  desc "Setup the necessary files and folders for deployment"
+  task :setup, :except => { :no_release => true } do
+    dirs = [deploy_to, releases_path, shared_path]
+    dirs += shared_children.map { |d| File.join(shared_path, d.split('/').last) }
+    run "#{sudo} mkdir -p #{dirs.join(' ')}"
+    run "#{sudo} chmod g+w #{dirs.join(' ')}" if fetch(:group_writable, true)
+  end
  
   # Deployment Tasks
   
