@@ -39,7 +39,7 @@
 				<%= image_tag("quick-signUp-text.png", alt: "Quick Signup") %>
 			</div>
 
-			<%= form_for(@user, validate: true, html: { class: "pull-right" }) do |f| %>
+			<%= form_for(User.new, validate: true, html: { class: "pull-right" }) do |f| %>
 
 				<% render 'shared/error_messages' %>
 

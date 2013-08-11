@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
+ruby '2.0.0'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.14'
 gem 'bootstrap-sass', '2.3.0.1'
-gem 'bcrypt-ruby', '3.0.1'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'faker', '1.1.2'
 # gem 'will_paginate', '3.0.3'
 # gem 'bootstrap-will_paginate', '0.0.6'
@@ -11,7 +12,7 @@ gem 'client_side_validations'
 gem 'rb-readline'
 
 group :development, :test do
-  gem 'pg', '0.14.1'
+  gem 'pg', '0.16.0'
   gem 'rspec-rails', '2.13.0'
   gem 'guard-rspec', '2.4.1'
   gem 'guard-spork', '1.4.2'  
@@ -35,12 +36,12 @@ group :test do
   gem 'minitest', '4.6.2'
   gem 'launchy', '2.1.0'
   gem 'factory_girl_rails', '4.2.1'
-  gem 'cucumber-rails', '1.3.0', :require => false
+  gem 'cucumber-rails', '1.3.0', require: false
   gem 'database_cleaner', '0.9.1'
 end
 
 group :production do
-  gem 'pg', '0.14.1'
+  gem 'pg', '0.16.0'
 end
 
 # To use Jbuilder templates for JSON
