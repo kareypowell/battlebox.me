@@ -12,7 +12,7 @@ gem 'client_side_validations'
 gem 'rb-readline'
 
 group :development, :test do
-  gem 'pg', '0.16.0'
+  gem 'sqlite3'
   gem 'rspec-rails', '2.13.0'
   gem 'guard-rspec', '2.4.1'
   gem 'guard-spork', '1.4.2'  
@@ -48,9 +48,9 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
-gem 'thin'
+# gem 'thin'
 gem 'passenger'
 
 # Deploy with Capistrano
