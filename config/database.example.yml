@@ -18,7 +18,7 @@ development:
   database: battlebox_development
   pool: 5
   host: localhost
-  username: user
+  username: deployer  
   password: 
 
   # Connect on a TCP socket. Omitted by default since the client uses a
