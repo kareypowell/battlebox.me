@@ -51,7 +51,7 @@ end
 gem 'unicorn'
 
 # gem 'thin'
-gem 'passenger'
+#gem 'passenger'
 
 # Deploy with Capistrano
 gem 'capistrano'
