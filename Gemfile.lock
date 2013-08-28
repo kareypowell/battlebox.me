@@ -70,7 +70,6 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
-    daemon_controller (1.1.5)
     database_cleaner (0.9.1)
     diff-lcs (1.2.4)
     erubis (2.7.0)
@@ -141,10 +140,6 @@ GEM
       mini_portile (~> 0.5.0)
     nokogiri (1.6.0-x86-mingw32)
       mini_portile (~> 0.5.0)
-    passenger (4.0.10)
-      daemon_controller (>= 1.1.0)
-      rack
-      rake (>= 0.8.1)
     pg (0.16.0)
     pg (0.16.0-x86-mingw32)
     polyglot (0.3.3)
@@ -271,7 +266,6 @@ DEPENDENCIES
   jquery-rails (= 2.2.1)
   launchy (= 2.1.0)
   minitest (= 4.6.2)
-  passenger
   pg (= 0.16.0)
   rails (= 3.2.14)
   rb-readline
